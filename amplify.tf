@@ -2,7 +2,7 @@ resource "aws_amplify_app" "amplify_test" {
   name       = "amplify_test"
   repository = "https://github.com/selenerescio/amplify_test"
 # GitHub personal access token
-  access_token = "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"
+  access_token = "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"
 # The default rewrites and redirects added by the Amplify Console.
   custom_rule {
     source = "/<*>"

@@ -1,5 +1,5 @@
-resource "aws_amplify_app" "wildrydes-site" {
-  name       = "wildrydes-site"
+resource "aws_amplify_app" "amplify_test" {
+  name       = "amplify_test"
   repository = "https://github.com/selenerescio/amplify_test"
 # GitHub personal access token
   access_token = "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"
@@ -26,7 +26,7 @@ resource "aws_amplify_app" "wildrydes-site" {
 
 }
 resource "aws_amplify_branch" "develop" {
-  app_id      = aws_amplify_app.wildrydes-site.id
+  app_id      = aws_amplify_app.amplify_test.id
   branch_name = "master"
   stage     = "PRODUCTION"
 }

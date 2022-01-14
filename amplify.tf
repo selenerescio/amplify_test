@@ -22,42 +22,11 @@ resource "aws_amplify_app" "wildrydes-site" {
   auto_branch_creation_config {
     # Enable auto build for the created branch.
     enable_auto_build = true
-  }
-    # The default build_spec added by the Amplify Console for React.
-  build_spec = <<-EOT
-    version: 0.1
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - yarn install
-        build:
-          commands:
-            - yarn run build
-      artifacts:
-        baseDirectory: build
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
-  EOT
+}
+
 }
 resource "aws_amplify_branch" "develop" {
   app_id      = aws_amplify_app.wildrydes-site.id
   branch_name = "master"
   stage     = "PRODUCTION"
 }
-# #Policy document specifying what service can assume the role
-# data "aws_iam_policy_document" "assume_role" {
-#   statement {
-#     effect  = "Allow"
-#     actions = ["sts:AssumeRole"]
-#     principals {
-#       type        = "Service"
-#       identifiers = ["amplify.amazonaws.com"]
-#     } 
-
-# }
-# }
-  
